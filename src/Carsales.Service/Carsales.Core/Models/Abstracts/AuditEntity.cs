@@ -16,26 +16,23 @@ namespace Carsales.Core.Models.Abstracts
         [SqlDefaultValue("GETUTCDATE()")]
         public DateTime CreatedDateTime { get; set; }
 
-        [Required]
-        public long CreatedBy { get; set; }
+        public long? CreatedBy { get; set; }
 
         [ForeignKey("CreatedBy")]
         public virtual User CreatedByUser { get; set; }
 
-        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        [SqlDefaultValue("GETUTCDATE()")]
-        public DateTime ModifiedDateTime { get; set; }
+        public DateTime? ModifiedDateTime { get; set; }
 
-        public long ModifiedBy { get; set; }
+        public long? ModifiedBy { get; set; }
 
         [ForeignKey("ModifiedBy")]
         public virtual User ModifiedByUser { get; set; }
 
-        public DateTime DeletedDateTime { get; set; }
+        public DateTime? DeletedDateTime { get; set; }
 
-        public long DeletedBy { get; set; }
+        public long? DeletedBy { get; set; }
 
-        [ForeignKey("ModifiedBy")]
+        [ForeignKey("DeletedBy")]
         public virtual User DeletedByUser { get; set; }
     }
 }

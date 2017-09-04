@@ -14,6 +14,10 @@ namespace Carsales.Core
     {
         public DbSet<Vehicle> Vehicles;
 
+        public DbSet<Model> Models;
+
+        public DbSet<Make> Makes;
+
         public CarsalesDbContext()
             : base("DefaultConnection")
         {
@@ -62,11 +66,9 @@ namespace Carsales.Core
                 .HasMaxLength(256)
                 .HasColumnAnnotation("Index", new IndexAnnotation(new IndexAttribute("RoleNameIndex") { IsUnique = true }));
             role.HasMany(r => r.Users).WithRequired().HasForeignKey(ur => ur.RoleId);
+
+            modelBuilder.Entity<Vehicle>().ToTable("Vehicles");
         }
 
-        //public static CarsalesDbContext Create()
-        //{
-        //    return new CarsalesDbContext();
-        //}
     }
 }

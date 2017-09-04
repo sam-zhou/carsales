@@ -6,28 +6,23 @@ using Microsoft.AspNet.Identity;
 
 namespace Carsales.Core.Models.Abstracts
 {
-    public interface IModifyEntity<TUser, TKey> where TUser : class, IUser<TKey> where TKey : IEquatable<TKey>
+    public interface IModifyEntity
     {
-        DateTime ModifiedDateTime { get; set; }
+        DateTime? ModifiedDateTime { get; set; }
 
-        TKey ModifiedBy { get; set; }
+        long? ModifiedBy { get; set; }
 
-        TUser ModifiedByUser { get; set; }
-
-    }
-
-    public interface IModifyEntity : IModifyEntity<User, long>
-    {
+        User ModifiedByUser { get; set; }
 
     }
 
     public class ModifyEntity<TKey> :BaseEntity<TKey>, IModifyEntity where TKey : IEquatable<TKey>
     {
-        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [SqlDefaultValue("GETUTCDATE()")]
-        public DateTime ModifiedDateTime { get; set; }
+        public DateTime? ModifiedDateTime { get; set; }
 
-        public long ModifiedBy { get; set; }
+        public long? ModifiedBy { get; set; }
 
         [ForeignKey("ModifiedBy")]
         public virtual User ModifiedByUser { get; set; }
