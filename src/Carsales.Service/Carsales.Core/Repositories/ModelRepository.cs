@@ -10,7 +10,7 @@ namespace Carsales.Core.Repositories
 {
     public interface IModelRepository : IRepository<Model, int>
     {
-        IQueryable<Model> GetModelsForMake(int makeId);
+        IQueryable<Model> GetModelsForMake(int makeId, VehicleType type);
     }
 
     public class ModelRepository : BaseRepository<Model, int>, IModelRepository
@@ -20,9 +20,9 @@ namespace Carsales.Core.Repositories
         {
         }
 
-        public IQueryable<Model> GetModelsForMake(int makeId)
+        public IQueryable<Model> GetModelsForMake(int makeId, VehicleType type)
         {
-            return Entities.Set<Model>().Where(q => q.MakeId == makeId);
+            return Entities.Set<Model>().Where(q => q.MakeId == makeId && q.VehicleType == type);
         }
     }
 }

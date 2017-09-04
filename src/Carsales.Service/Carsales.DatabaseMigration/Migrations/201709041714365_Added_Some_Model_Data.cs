@@ -80,10 +80,36 @@ namespace Carsales.DatabaseMigration.Migrations
                 UNION ALL
                 SELECT 'Volvo' , GETUTCDATE(), 1
                 GO");
+            Sql(@"INSERT INTO Models (Name, MakeId, CREATEDDATETIME, CREATEDBY, VehicleType)
+                 SELECT '1 Series',5 , GETUTCDATE(), 1, 1
+                 UNION ALL
+                 SELECT '2 Series',5 , GETUTCDATE(), 1, 1
+                 UNION ALL
+                 SELECT '3 Series',5 , GETUTCDATE(), 1, 1
+                 UNION ALL
+                 SELECT '4 Series',5 , GETUTCDATE(), 1, 1
+                 UNION ALL
+                 SELECT '5 Series',5 , GETUTCDATE(), 1, 1
+                 UNION ALL
+                 SELECT '7 Series',5 , GETUTCDATE(), 1, 1
+                 UNION ALL
+                 SELECT 'X1',5 , GETUTCDATE(), 1, 1
+                 UNION ALL
+                 SELECT 'X3',5 , GETUTCDATE(), 1, 1
+                 UNION ALL
+                 SELECT 'X4',5 , GETUTCDATE(), 1, 1
+                 UNION ALL
+                 SELECT 'X5',5 , GETUTCDATE(), 1, 1
+                 UNION ALL
+                 SELECT 'X6',5 , GETUTCDATE(), 1, 1
+                 UNION ALL
+                 SELECT 'M Series',5 , GETUTCDATE(), 1, 1
+                GO");
         }
         
         public override void Down()
         {
+            Sql(@"DELETE FROM Models");
             Sql(@"DELETE FROM MAKES");
         }
     }
