@@ -1,5 +1,7 @@
-#Carsales Take Home Project
+## Carsales Take Home Project
 
-##Carsales.Services Solution
-Backend service
+
+### Carsales.Services Solution
+
+* Backend service
 
