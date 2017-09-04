@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carsales.Api", "Carsales.Api\Carsales.Api.csproj", "{18963C3C-0871-4A96-AFF6-7322FBB9231A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D1AFBB82-5E33-4FA0-BE23-1D92890C30A0} = {D1AFBB82-5E33-4FA0-BE23-1D92890C30A0}
+		{AF7C909E-FD13-4432-A55A-9125436A696B} = {AF7C909E-FD13-4432-A55A-9125436A696B}
+		{0406E1A6-6DAA-4F50-9558-53411C2DDE28} = {0406E1A6-6DAA-4F50-9558-53411C2DDE28}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CD381487-D7C7-48CB-B577-DA838AF032BC}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{03B32467-C218-41BA-BCF2-7EA3D68468C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carsales.Core", "Carsales.Core\Carsales.Core.csproj", "{0406E1A6-6DAA-4F50-9558-53411C2DDE28}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carsales.Common", "Carsales.Common\Carsales.Common.csproj", "{D1AFBB82-5E33-4FA0-BE23-1D92890C30A0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carsales.Dto", "Carsales.Dto\Carsales.Dto.csproj", "{AF7C909E-FD13-4432-A55A-9125436A696B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carsales.DatabaseMigration", "Carsales.DatabaseMigration\Carsales.DatabaseMigration.csproj", "{D1B1F5BF-6404-411A-8CB6-DBA06877D06C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carsales.Api.Tests", "Tests\Carsales.Api.Tests\Carsales.Api.Tests.csproj", "{A7D0C631-8CC0-460E-8370-F238249D60D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug Local|Any CPU = Debug Local|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18963C3C-0871-4A96-AFF6-7322FBB9231A}.Debug Local|Any CPU.ActiveCfg = Debug|Any CPU
+		{18963C3C-0871-4A96-AFF6-7322FBB9231A}.Debug Local|Any CPU.Build.0 = Debug|Any CPU
+		{18963C3C-0871-4A96-AFF6-7322FBB9231A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18963C3C-0871-4A96-AFF6-7322FBB9231A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18963C3C-0871-4A96-AFF6-7322FBB9231A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18963C3C-0871-4A96-AFF6-7322FBB9231A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0406E1A6-6DAA-4F50-9558-53411C2DDE28}.Debug Local|Any CPU.ActiveCfg = Debug|Any CPU
+		{0406E1A6-6DAA-4F50-9558-53411C2DDE28}.Debug Local|Any CPU.Build.0 = Debug|Any CPU
+		{0406E1A6-6DAA-4F50-9558-53411C2DDE28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0406E1A6-6DAA-4F50-9558-53411C2DDE28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0406E1A6-6DAA-4F50-9558-53411C2DDE28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0406E1A6-6DAA-4F50-9558-53411C2DDE28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1AFBB82-5E33-4FA0-BE23-1D92890C30A0}.Debug Local|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1AFBB82-5E33-4FA0-BE23-1D92890C30A0}.Debug Local|Any CPU.Build.0 = Debug|Any CPU
+		{D1AFBB82-5E33-4FA0-BE23-1D92890C30A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1AFBB82-5E33-4FA0-BE23-1D92890C30A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1AFBB82-5E33-4FA0-BE23-1D92890C30A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1AFBB82-5E33-4FA0-BE23-1D92890C30A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF7C909E-FD13-4432-A55A-9125436A696B}.Debug Local|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF7C909E-FD13-4432-A55A-9125436A696B}.Debug Local|Any CPU.Build.0 = Debug|Any CPU
+		{AF7C909E-FD13-4432-A55A-9125436A696B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF7C909E-FD13-4432-A55A-9125436A696B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF7C909E-FD13-4432-A55A-9125436A696B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF7C909E-FD13-4432-A55A-9125436A696B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1B1F5BF-6404-411A-8CB6-DBA06877D06C}.Debug Local|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B1F5BF-6404-411A-8CB6-DBA06877D06C}.Debug Local|Any CPU.Build.0 = Debug|Any CPU
+		{D1B1F5BF-6404-411A-8CB6-DBA06877D06C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B1F5BF-6404-411A-8CB6-DBA06877D06C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B1F5BF-6404-411A-8CB6-DBA06877D06C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B1F5BF-6404-411A-8CB6-DBA06877D06C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7D0C631-8CC0-460E-8370-F238249D60D4}.Debug Local|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7D0C631-8CC0-460E-8370-F238249D60D4}.Debug Local|Any CPU.Build.0 = Debug|Any CPU
+		{A7D0C631-8CC0-460E-8370-F238249D60D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7D0C631-8CC0-460E-8370-F238249D60D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7D0C631-8CC0-460E-8370-F238249D60D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7D0C631-8CC0-460E-8370-F238249D60D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A7D0C631-8CC0-460E-8370-F238249D60D4} = {03B32467-C218-41BA-BCF2-7EA3D68468C1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45
+	EndGlobalSection
+EndGlobal
