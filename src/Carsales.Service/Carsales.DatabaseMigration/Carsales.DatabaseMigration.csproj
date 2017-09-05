@@ -98,6 +98,10 @@
     <Compile Include="Migrations\201709041714365_Added_Some_Model_Data.Designer.cs">
       <DependentUpon>201709041714365_Added_Some_Model_Data.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709050730325_Add_More_Properties_To_Vehicle.cs" />
+    <Compile Include="Migrations\201709050730325_Add_More_Properties_To_Vehicle.Designer.cs">
+      <DependentUpon>201709050730325_Add_More_Properties_To_Vehicle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -119,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709041714365_Added_Some_Model_Data.resx">
       <DependentUpon>201709041714365_Added_Some_Model_Data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709050730325_Add_More_Properties_To_Vehicle.resx">
+      <DependentUpon>201709050730325_Add_More_Properties_To_Vehicle.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
 using Carsales.Core.Models;
-using Carsales.Dto.Makes;
-using Carsales.Dto.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Carsales.Dto.Vehicles;
 
 namespace Carsales.Api
 {
@@ -18,6 +17,10 @@ namespace Carsales.Api
                 config.CreateMap<Make, MakeDto>().ReverseMap();
 
                 config.CreateMap<Model, ModelDto>().ReverseMap();
+
+                config.CreateMap<Badge, BadgeDto>().ReverseMap();
+
+                config.CreateMap<Vehicle, VehicleDto>().ReverseMap();
             });
         }
     }

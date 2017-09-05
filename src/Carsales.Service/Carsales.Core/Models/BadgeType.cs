@@ -10,6 +10,7 @@ namespace Carsales.Core.Models
     {
         Hatchback = 101,
         Sedan = 102,
+        SUV = 103,
 
         Road = 201,
         OffRoad = 202

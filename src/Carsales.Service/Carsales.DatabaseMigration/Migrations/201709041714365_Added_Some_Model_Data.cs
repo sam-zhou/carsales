@@ -7,108 +7,130 @@ namespace Carsales.DatabaseMigration.Migrations
     {
         public override void Up()
         {
-            Sql(@"INSERT INTO Makes (Name, CreatedDateTime, CreatedBy)
-                SELECT 'Acura' , GETUTCDATE(), 1
+            Sql(@"
+                SET IDENTITY_INSERT Makes ON
+                INSERT INTO Makes (Id, Name, CreatedDateTime, CreatedBy)
+                SELECT 2,'Acura' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Audi' , GETUTCDATE(), 1
+                SELECT 3,'Audi' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Bentley' , GETUTCDATE(), 1
+                SELECT 4,'Bentley' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'BMW' , GETUTCDATE(), 1
+                SELECT 5,'BMW' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Buick' , GETUTCDATE(), 1
+                SELECT 6,'Buick' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Cadillac' , GETUTCDATE(), 1
+                SELECT 7,'Cadillac' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Chevrolet' , GETUTCDATE(), 1
+                SELECT 8,'Chevrolet' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Chrysler' , GETUTCDATE(), 1
+                SELECT 9,'Chrysler' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Dodge' , GETUTCDATE(), 1
+                SELECT 10,'Dodge' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Fiat' , GETUTCDATE(), 1
+                SELECT 11,'Fiat' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Ford' , GETUTCDATE(), 1
+                SELECT 12,'Ford' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'GMC' , GETUTCDATE(), 1
+                SELECT 13,'GMC' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Honda' , GETUTCDATE(), 1
+                SELECT 14,'Honda' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Hyundai' , GETUTCDATE(), 1
+                SELECT 15,'Hyundai' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Infiniti' , GETUTCDATE(), 1
+                SELECT 16,'Infiniti' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Jaguar' , GETUTCDATE(), 1
+                SELECT 17,'Jaguar' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Jeep' , GETUTCDATE(), 1
+                SELECT 18,'Jeep' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Kia' , GETUTCDATE(), 1
+                SELECT 19,'Kia' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Lamborghini' , GETUTCDATE(), 1
+                SELECT 20,'Lamborghini' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Lexus' , GETUTCDATE(), 1
+                SELECT 21,'Lexus' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Lincoln' , GETUTCDATE(), 1
+                SELECT 22,'Lincoln' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Maserati' , GETUTCDATE(), 1
+                SELECT 23,'Maserati' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Mazda' , GETUTCDATE(), 1
+                SELECT 24,'Mazda' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'McLaren' , GETUTCDATE(), 1
+                SELECT 25,'McLaren' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Mercedes-Benz' , GETUTCDATE(), 1
+                SELECT 26,'Mercedes-Benz' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Mini' , GETUTCDATE(), 1
+                SELECT 27,'Mini' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Mitsubishi' , GETUTCDATE(), 1
+                SELECT 28,'Mitsubishi' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Nissan' , GETUTCDATE(), 1
+                SELECT 29,'Nissan' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Porsche' , GETUTCDATE(), 1
+                SELECT 30,'Porsche' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Rolls-Royce' , GETUTCDATE(), 1
+                SELECT 31,'Rolls-Royce' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Scion' , GETUTCDATE(), 1
+                SELECT 32,'Scion' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Smart' , GETUTCDATE(), 1
+                SELECT 33,'Smart' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Subaru' , GETUTCDATE(), 1
+                SELECT 34,'Subaru' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Toyota' , GETUTCDATE(), 1
+                SELECT 35,'Toyota' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Volkswagen' , GETUTCDATE(), 1
+                SELECT 36,'Volkswagen' , GETUTCDATE(), 1
                 UNION ALL
-                SELECT 'Volvo' , GETUTCDATE(), 1
-                GO");
-            Sql(@"INSERT INTO Models (Name, MakeId, CREATEDDATETIME, CREATEDBY, VehicleType)
-                 SELECT '1 Series',5 , GETUTCDATE(), 1, 1
+                SELECT 37,'Volvo' , GETUTCDATE(), 1
+                GO
+                SET IDENTITY_INSERT Makes OFF");
+            Sql(@"
+                SET IDENTITY_INSERT Models ON
+                INSERT INTO Models (Id, Name, MakeId, CREATEDDATETIME, CREATEDBY, VehicleType)
+                 SELECT 1,'1 Series',5 , GETUTCDATE(), 1, 1
                  UNION ALL
-                 SELECT '2 Series',5 , GETUTCDATE(), 1, 1
+                 SELECT 2,'2 Series',5 , GETUTCDATE(), 1, 1
                  UNION ALL
-                 SELECT '3 Series',5 , GETUTCDATE(), 1, 1
+                 SELECT 3,'3 Series',5 , GETUTCDATE(), 1, 1
                  UNION ALL
-                 SELECT '4 Series',5 , GETUTCDATE(), 1, 1
+                 SELECT 4,'4 Series',5 , GETUTCDATE(), 1, 1
                  UNION ALL
-                 SELECT '5 Series',5 , GETUTCDATE(), 1, 1
+                 SELECT 5,'5 Series',5 , GETUTCDATE(), 1, 1
                  UNION ALL
-                 SELECT '7 Series',5 , GETUTCDATE(), 1, 1
+                 SELECT 6,'7 Series',5 , GETUTCDATE(), 1, 1
                  UNION ALL
-                 SELECT 'X1',5 , GETUTCDATE(), 1, 1
+                 SELECT 7,'X1',5 , GETUTCDATE(), 1, 1
                  UNION ALL
-                 SELECT 'X3',5 , GETUTCDATE(), 1, 1
+                 SELECT 8,'X3',5 , GETUTCDATE(), 1, 1
                  UNION ALL
-                 SELECT 'X4',5 , GETUTCDATE(), 1, 1
+                 SELECT 9,'X4',5 , GETUTCDATE(), 1, 1
                  UNION ALL
-                 SELECT 'X5',5 , GETUTCDATE(), 1, 1
+                 SELECT 10,'X5',5 , GETUTCDATE(), 1, 1
                  UNION ALL
-                 SELECT 'X6',5 , GETUTCDATE(), 1, 1
+                 SELECT 11,'X6',5 , GETUTCDATE(), 1, 1
                  UNION ALL
-                 SELECT 'M Series',5 , GETUTCDATE(), 1, 1
-                GO");
+                 SELECT 12,'M Series',5 , GETUTCDATE(), 1, 1
+                GO
+                SET IDENTITY_INSERT Models OFF");
+
+            Sql(@" SET IDENTITY_INSERT Badges ON
+                  INSERT INTO Badges (Id, Name, BadgeType, ModelId, CreatedDateTime, CreatedBy, Engine, Doors, Wheels)
+                  SELECT 1, 'F15 xDrive20i', 103, 10, GETUTCDATE(), 1, 2000, 5, 4
+                  UNION ALL
+                  SELECT 2, 'F15 xDrive20d', 103, 10, GETUTCDATE(), 1, 2000, 5, 4
+                  UNION ALL
+                  SELECT 3, 'F15 xDrive30i', 103, 10, GETUTCDATE(), 1, 3000, 5, 4
+                  UNION ALL
+                  SELECT 4, 'F15 xDrive30d', 103, 10, GETUTCDATE(), 1, 3000, 5, 4
+                  UNION ALL
+                  SELECT 5, 'E70 xDrive30d', 103, 10, GETUTCDATE(), 1, 3000, 5, 4
+                  GO
+  
+                  SET IDENTITY_INSERT Badges OFF");
         }
         
         public override void Down()
         {
+            Sql(@"DELETE FROM Badges");
             Sql(@"DELETE FROM Models");
             Sql(@"DELETE FROM MAKES");
         }

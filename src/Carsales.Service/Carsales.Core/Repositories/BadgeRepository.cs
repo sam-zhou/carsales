@@ -22,7 +22,7 @@ namespace Carsales.Core.Repositories
 
         public IQueryable<Badge> GetBadgesForModel(int modelId)
         {
-            return Entities.Set<Badge>().Where(q => q.ModelId == modelId);
+            return DbContext.Set<Badge>().Where(q => q.ModelId == modelId);
         }
     }
 }

@@ -18,13 +18,15 @@ namespace Carsales.Core.Repositories.Abstracts
         where TModel : BaseEntity<TKey>
         where TKey : IEquatable<TKey>
     {
-        IEnumerable<TModel> GetAll();
+        IQueryable<TModel> GetAll();
         TModel Get(TKey id);
-        IEnumerable<TModel> FindBy(Expression<Func<TModel, bool>> predicate);
+        Task<TModel> GetAsync(TKey id);
+        IQueryable<TModel> FindBy(Expression<Func<TModel, bool>> predicate);
         TModel Add(TModel entity);
         TModel Delete(TModel entity);
         void Edit(TModel entity);
         void Save();
+        Task SaveAsync();
     }
 
     public interface IRepository<TModel> : IRepository<TModel, long> 
@@ -37,19 +39,23 @@ namespace Carsales.Core.Repositories.Abstracts
         where TModel : BaseEntity<TKey>
         where TKey : IEquatable<TKey>
     {
-        protected DbContext Entities;
-        protected readonly IDbSet<TModel> Dbset;
+        protected DbContext DbContext;
+        protected readonly DbSet<TModel> Dbset;
 
         protected BaseRepository(DbContext context)
         {
-            Entities = context;
+            DbContext = context;
             Dbset = context.Set<TModel>();
         }
 
-        public virtual IEnumerable<TModel> GetAll()
+        public virtual IQueryable<TModel> GetAll()
         {
+            return Dbset.AsNoTracking();
+        }
 
-            return Dbset.AsEnumerable();
+        public async Task<TModel> GetAsync(TKey id)
+        {
+            return await Dbset.FindAsync(id);
         }
 
         public TModel Get(TKey id)
@@ -57,10 +63,9 @@ namespace Carsales.Core.Repositories.Abstracts
             return Dbset.Find(id);
         }
 
-        public IEnumerable<TModel> FindBy(System.Linq.Expressions.Expression<Func<TModel, bool>> predicate)
+        public IQueryable<TModel> FindBy(System.Linq.Expressions.Expression<Func<TModel, bool>> predicate)
         {
-
-            IEnumerable<TModel> query = Dbset.Where(predicate).AsEnumerable();
+            var query = Dbset.Where(predicate);
             return query;
         }
 
@@ -74,17 +79,22 @@ namespace Carsales.Core.Repositories.Abstracts
             return Dbset.Remove(entity);
         }
 
+
         public virtual void Edit(TModel entity)
         {
-            Entities.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            DbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
         }
+
 
         public virtual void Save()
         {
-            Entities.SaveChanges();
+            DbContext.SaveChanges();
         }
 
-        
+        public async Task SaveAsync()
+        {
+            await DbContext.SaveChangesAsync();
+        }
     }
 
     public abstract class BaseRepository<TModel> : BaseRepository<TModel, long>
