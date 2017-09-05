@@ -12,7 +12,7 @@ namespace Carsales.Api.Tests.VehicleController
         private readonly Api.VehicleController _controller;
         public VehicleControllerTests()
         {
-            _controller = new Api.VehicleController(VehicleRepository.Object, UnitOfWork.Object, MakeRepository.Object, ModelRepository.Object);
+            _controller = new Api.VehicleController(VehicleRepository.Object, UnitOfWork.Object, MakeRepository.Object, ModelRepository.Object, BadgeRepository.Object);
         }
 
         [Fact]

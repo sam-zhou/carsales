@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using Newtonsoft.Json.Serialization;
+using System.Web.Http.Cors;
 
 namespace Carsales.Api
 {
@@ -11,7 +12,12 @@ namespace Carsales.Api
             //// Configure Web API to use only bearer token authentication.
             //config.SuppressDefaultHostAuthentication();
             //config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            // Enable cors
+            var cors = new EnableCorsAttribute("*", "accept,accesstoken,authorization,cache-control,pragma,content-type,origin", "GET,PUT,POST,DELETE,TRACE,HEAD,OPTIONS");
 
+            //var cors = new EnableCorsAttribute("*", "*", "*");
+
+            config.EnableCors(cors);
             config.Filters.Add(new AuthorizeAttribute());
 
             // Use camel case for JSON data.
