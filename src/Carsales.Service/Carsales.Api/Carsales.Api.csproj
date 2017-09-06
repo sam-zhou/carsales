@@ -402,6 +402,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\carsalesapi - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\shome2017.pubxml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

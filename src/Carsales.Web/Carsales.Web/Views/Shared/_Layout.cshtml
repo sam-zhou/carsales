@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.Extensions.Options.IOptionsSnapshot<Carsales.Web.AppSettings> AppSettings
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
@@ -11,5 +12,11 @@
         @RenderBody()
 
         @RenderSection("scripts", required: false)
+
+        <script>
+        (function () {
+            window.apiUrl = '@AppSettings.Value.ApiUrl';
+        })();
+        </script>
     </body>
 </html>
