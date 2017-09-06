@@ -20,7 +20,7 @@ module.exports = (env) => {
                 { test: /\.ts$/, include: /ClientApp/, use: ['awesome-typescript-loader?silent=true', 'angular2-template-loader'] },
                 { test: /\.html$/, use: 'html-loader?minimize=false' },
                 {
-                    test: /\.(scss|css)$/, loader: ExtractTextPlugin.extract({
+                    test: /\.css$/, loader: ExtractTextPlugin.extract({
                         fallback: 'style-loader',
                         use: [
                             'to-string-loader', 
@@ -29,7 +29,20 @@ module.exports = (env) => {
                         ]
                     })
                 },
-                { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
+                {
+                    test: /\.scss$/,
+                    exclude: [/\.style\.scss$/],
+                    exclude: /node_modules/,
+                    loaders: ['raw-loader', 'sass-loader']
+                },
+                {
+                    test: /\.style\.scss$/,
+                    loaders: ['style-loader', 'css-loader', 'sass-loader']
+                },
+                {
+                    test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/
+                    , loader: 'url?limit=100000&name=[name].[ext]'
+                }
             ]
         },
         plugins: [

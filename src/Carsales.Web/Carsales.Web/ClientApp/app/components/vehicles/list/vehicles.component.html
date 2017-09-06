@@ -1,0 +1,14 @@
+<div class="vehicles-container">
+    <busy-state *ngIf="loading"></busy-state>
+    <button (click)="addCar()">Add Car</button>
+    <button (click)="addCar()">Add Bike</button>
+
+    
+    <ul>
+        <li *ngFor="let vehicle of vehicles" (dblclick)="view(vehicle)">{{vehicle.name}}
+            <button (click)="edit(vehicle)">Edit</button>
+        </li>
+    </ul>
+
+    
+</div>

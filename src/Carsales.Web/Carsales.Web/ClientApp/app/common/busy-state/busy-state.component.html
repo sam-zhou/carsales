@@ -1,6 +1,9 @@
-<div class="fxs-progress">
-    <div class="fxs-progress-dots">
-        <div></div><div></div><div></div>
-        <div ng-if="vm.message">{{vm.message}}</div>
+<div class="fxs-container">
+    <div class="fxs-progress">
+        <div class="fxs-progress-dots">
+            <div></div><div></div><div></div><div></div><div></div>
+            
+        </div>
+        <div class="fxs-message" *ngIf="message">{{message}}</div>
     </div>
 </div>

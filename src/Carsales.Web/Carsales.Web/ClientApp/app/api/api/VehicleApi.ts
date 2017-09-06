@@ -93,6 +93,22 @@ export class VehicleApi {
      * @param input 
      * @param acceptLanguage Which languages the client is able to understand, and which locale variant is preferred. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language
      */
+    public getVehicleAsync(input: models.GetVehicleInput, acceptLanguage?: string, extraHttpRequestParams?: any): Observable<models.VehicleDto> {
+        return this.getVehicleAsyncWithHttpInfo(input, acceptLanguage, extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json() || {};
+                }
+            });
+    }
+
+    /**
+     * 
+     * @param input 
+     * @param acceptLanguage Which languages the client is able to understand, and which locale variant is preferred. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language
+     */
     public getVehiclesAsync(input: models.GetVehiclesInput, acceptLanguage?: string, extraHttpRequestParams?: any): Observable<models.PagedResultDtoVehicleDto> {
         return this.getVehiclesAsyncWithHttpInfo(input, acceptLanguage, extraHttpRequestParams)
             .map((response: Response) => {
@@ -243,6 +259,59 @@ export class VehicleApi {
         // verify required parameter 'input' is not null or undefined
         if (input === null || input === undefined) {
             throw new Error('Required parameter input was null or undefined when calling getModelsAsync.');
+        }
+        if (acceptLanguage !== undefined && acceptLanguage !== null) {
+            headers.set('Accept-Language', String(acceptLanguage));
+        }
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+            'application/json',
+            'text/json',
+            'application/xml',
+            'text/xml',
+            'application/x-www-form-urlencoded'
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+            'application/json',
+            'text/json',
+            'application/xml',
+            'text/xml'
+        ];
+
+        headers.set('Content-Type', 'application/json');
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Post,
+            headers: headers,
+            body: input == null ? '' : JSON.stringify(input), // https://github.com/angular/angular/issues/10612
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
+        });
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
+     * 
+     * 
+     * @param input 
+     * @param acceptLanguage Which languages the client is able to understand, and which locale variant is preferred. See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Language
+     */
+    public getVehicleAsyncWithHttpInfo(input: models.GetVehicleInput, acceptLanguage?: string, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/api/Vehicle/GetVehicleAsync';
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // verify required parameter 'input' is not null or undefined
+        if (input === null || input === undefined) {
+            throw new Error('Required parameter input was null or undefined when calling getVehicleAsync.');
         }
         if (acceptLanguage !== undefined && acceptLanguage !== null) {
             headers.set('Accept-Language', String(acceptLanguage));

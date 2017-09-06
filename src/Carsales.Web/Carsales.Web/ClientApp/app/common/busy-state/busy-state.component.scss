@@ -1,4 +1,4 @@
-busy-state {
+.fxs-container {
     position: absolute;
     top: 0;
     left: 0;
@@ -9,38 +9,37 @@ busy-state {
     background-color: rgba(255, 255, 255, 0.4);
     z-index: 10;
     text-align: center;
+}
 
-    @-webkit-keyframes fxs-progress-animatedEllipses {
-        0% {
-            opacity: 1;
-        }
-
-        30% {
-            opacity: .6;
-        }
-
-        60% {
-            opacity: .3;
-        }
+@-webkit-keyframes fxs-progress-animatedEllipses {
+    0% {
+        opacity: 1;
     }
 
-    @keyframes fxs-progress-animatedEllipses {
-        0% {
-            opacity: 1;
-        }
-
-        30% {
-            opacity: .6;
-        }
-
-        60% {
-            opacity: .3;
-        }
+    30% {
+        opacity: .6;
     }
 
-    .fxs-progress
+    60% {
+        opacity: .3;
+    }
+}
 
-{
+@keyframes fxs-progress-animatedEllipses {
+    0% {
+        opacity: 1;
+    }
+
+    30% {
+        opacity: .6;
+    }
+
+    60% {
+        opacity: .3;
+    }
+}
+
+.fxs-progress {
     position: absolute;
     top: 0;
     left: 0;
@@ -59,34 +58,50 @@ busy-state {
     text-align: center;
 }
 
-    .fxs-progress-dots > div {
-        display: inline-block;
-        height: 6px;
-        width: 6px;
-        -webkit-animation: fxs-progress-animatedEllipses 1.5s infinite;
-        animation: fxs-progress-animatedEllipses 1.5s infinite;
-        background: #aab3bd;
-        margin: 0 2.5px;
-    }
+.fxs-message {
+    position: absolute;
+    top: calc(50% + 3px);
+    width: 100%;
+}
 
-        .fxs-progress-dots > div:nth-child(1) {
-            -webkit-animation-delay: 0s;
-            animation-delay: 0s;
-        }
+.fxs-progress-dots > div {
+    display: inline-block;
+    height: 6px;
+    width: 6px;
+    -webkit-animation: fxs-progress-animatedEllipses 1.5s infinite;
+    animation: fxs-progress-animatedEllipses 1.5s infinite;
+    background: #aab3bd;
+    margin: 0 2.5px;
+}
 
-        .fxs-progress-dots > div:nth-child(2) {
-            -webkit-animation-delay: 0.2s;
-            animation-delay: 0.2s;
-        }
+.fxs-progress-dots > div:nth-child(1) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
 
-        .fxs-progress-dots > div:nth-child(3) {
-            -webkit-animation-delay: 0.4s;
-            animation-delay: 0.4s;
-        }
+.fxs-progress-dots > div:nth-child(2) {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
 
-        .fxs-progress-dots > div:nth-child(4) {
-            padding-top: 20px;
-            width: 100%;
-            background: white;
-        }
+.fxs-progress-dots > div:nth-child(3) {
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+
+.fxs-progress-dots > div:nth-child(4) {
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+
+.fxs-progress-dots > div:nth-child(5) {
+    -webkit-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+}
+
+
+.fxs-progress-dots > div:nth-child(6) {
+    padding-top: 20px;
+    width: 100%;
+    background: white;
 }

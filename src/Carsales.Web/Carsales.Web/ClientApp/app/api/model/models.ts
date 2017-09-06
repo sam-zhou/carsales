@@ -1,6 +1,7 @@
 export * from './BadgeDto';
 export * from './GetBadgesInput';
 export * from './GetModelsInput';
+export * from './GetVehicleInput';
 export * from './GetVehiclesInput';
 export * from './ImageDto';
 export * from './MakeDto';

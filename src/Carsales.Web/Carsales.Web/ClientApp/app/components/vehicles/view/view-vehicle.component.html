@@ -1,0 +1,6 @@
+<div class="vehicle-container">
+    <busy-state *ngIf="loading"></busy-state>
+    <div *ngIf="vehicle">
+        {{vehicle.name}}
+    </div>
+</div>

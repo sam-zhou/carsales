@@ -25,6 +25,7 @@ namespace Carsales.Api.Api
         Task<List<BadgeDto>> GetBadgesAsync(GetBadgesInput input);
 
         Task<PagedResultDto<VehicleDto>> GetVehiclesAsync(GetVehiclesInput input);
+        Task<VehicleDto> GetVehicleAsync(GetVehicleInput input);
 
     }
 
@@ -101,6 +102,18 @@ namespace Carsales.Api.Api
             var results = Mapper.Map<List<VehicleDto>>(models);
 
             return new PagedResultDto<VehicleDto>(totoalCount, results);
+        }
+
+        [HttpPost]
+        public async Task<VehicleDto> GetVehicleAsync(GetVehicleInput input)
+        {
+            var entity = await _vehicleRepository.GetAsync(input.Id);
+            if (entity == null)
+            {
+                throw new UserFriendlyException($"Vehicle #{input.Id} not found");
+            }
+
+            return Mapper.Map<VehicleDto>(entity);
         }
 
         [HttpPost]

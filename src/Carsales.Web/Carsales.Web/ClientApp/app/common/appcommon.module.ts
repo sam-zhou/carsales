@@ -1,11 +1,12 @@
 ﻿import { NgModule } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 import { BusyStateComponent } from './busy-state/busy-state.component';
 
 @NgModule({
-    imports: [],
+    imports: [ CommonModule ],
     declarations: [BusyStateComponent],
     providers: [],
-    bootstrap: []
+    bootstrap: [],
+    exports: [BusyStateComponent]
 })
-export class CommonModule { }
+export class AppCommonModule { }

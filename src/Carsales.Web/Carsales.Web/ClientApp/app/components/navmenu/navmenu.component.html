@@ -7,7 +7,7 @@
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
             </button>
-            <a class='navbar-brand' [routerLink]="['/home']">Carsales</a>
+            <a class='navbar-brand' [routerLink]="['/search']">Carsales</a>
         </div>
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse'>
@@ -18,8 +18,8 @@
                     </a>
                 </li>
                 <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/vehicles']">
-                        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Vehicles
+                    <a [routerLink]="['/vehicles/list']">
+                        <i class="fa fa-car" aria-hidden="true"></i> Vehicles
                     </a>
                 </li>
             </ul>

@@ -1,0 +1,57 @@
+<div class="vehicle-container">
+    <busy-state *ngIf="loading"></busy-state>
+    <div *ngIf="vehicle">
+        <form name="vehicleEditForm" role="form" novalidate class="form-validation" >
+            <div class="form">
+                <div class="form-horizontal">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="make">Make</label>
+                            <div class="col-md-9">
+                                <select class="form-control" [(ngModel)]="vehicle.badge.model.makeId" (ngModelChange)="loadModels(vehicle.badge.model.makeId)" name="make">
+                                    <option *ngFor="let m of makes" [ngValue]="m.id"> {{m.name}} </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="model">Model</label>
+                            <div class="col-md-9">
+                                <select class="form-control" [(ngModel)]="vehicle.badge.modelId" (ngModelChange)="loadBadges(vehicle.badge.modelId)" name="model">
+                                    <option *ngFor="let m of models" [ngValue]="m.id"> {{m.name}} </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="badge">Badge</label>
+                            <div class="col-md-9">
+                                <select class="form-control" [(ngModel)]="vehicle.badgeId" name="badge">
+                                    <option *ngFor="let b of badges" [ngValue]="b.id"> {{b.name}} </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="name">Title</label>
+                            <div class="col-md-9">
+                                <input class="form-control" type="text" name="name" [(ngModel)]="vehicle.name" required maxlength="250">
+                                <!--<ul class="list-unstyled">
+                                    <li class="text-danger" *ngIf="vehicleEditForm.name.$error.required">Title is required</li>
+                                    <li class="text-danger" *ngIf="vehicleEditForm.name.$error.maxlength">Title cannot go over 250 characters</li>
+                                </ul>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="description">Description</label>
+                            <div class="col-md-9">
+                                <textarea class="form-control" name="description" [(ngModel)]="vehicle.description" required rows="6"></textarea>
+                                <!--<ul class="list-unstyled">
+                                    <li class="text-danger" *ngIf="vehicleEditForm.description.$error.required">Description is required</li>
+                                    <li class="text-danger" *ngIf="vehicleEditForm.description.$error.maxlength">Description cannot go over 500 characters</li>
+                                </ul>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
