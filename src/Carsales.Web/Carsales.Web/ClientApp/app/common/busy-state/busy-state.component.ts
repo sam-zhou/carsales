@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app',
-    templateUrl: './app.component.html',
-    styles: ['./app.component.scss'],
+    selector: 'busy-state',
+    templateUrl: './busy-state.component.html',
+    styles: ['./busy-state.component.scss'],
 })
 export class BusyStateComponent implements OnInit
 {
-
     ngOnInit() {
 
     }

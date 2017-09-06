@@ -24,6 +24,6 @@ export class VehiclesComponent implements OnInit {
         }).subscribe(result => {
             this.vehicles = result.results;
             this.totalCount = result.totalCount;
-        })
+        });
     }
 }

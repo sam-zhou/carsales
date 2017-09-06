@@ -1,10 +1,10 @@
 ﻿import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import * as common from "./index";
+
+import { BusyStateComponent } from './busy-state/busy-state.component';
 
 @NgModule({
     imports: [],
-    declarations: [],
+    declarations: [BusyStateComponent],
     providers: [],
     bootstrap: []
 })
