@@ -13,7 +13,7 @@
             <div class="image-container">
                 <img/>
             </div>
-            <div class="title">{{vehicle.name}}</div>
+            <div class="title"><a [routerLink]="['/vehicle/' + vehicle.id]">{{vehicle.name}}</a></div>
             <label class="price">$ {{vehicle.price | number }}</label>
             <div class="details">
                 <div class="detail-item">

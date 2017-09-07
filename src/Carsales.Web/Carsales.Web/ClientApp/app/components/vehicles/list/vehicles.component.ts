@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VehicleDto, VehicleApi, GetVehiclesInput } from '../../../api/index';
 import { LoadableComponent } from '../../shared/index';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'vehicles',
@@ -15,7 +16,7 @@ export class VehiclesComponent extends LoadableComponent implements OnInit {
     public itemsPerPage: number = 3;
     public page: number = 1;
 
-    constructor(private vehicleService: VehicleApi, private router: Router, private route: ActivatedRoute) {
+    constructor(private vehicleService: VehicleApi, private router: Router, private route: ActivatedRoute, private location: Location) {
         super(true);
     }
 
@@ -37,6 +38,12 @@ export class VehiclesComponent extends LoadableComponent implements OnInit {
     public getVehicles(resetPage: boolean = false) {
         if (resetPage) {
             this.page = 1;
+        }
+
+        if (this.page != 1) {
+            this.location.go('/vehicles/list?page=' + this.page);
+        } else {
+            this.location.go('/vehicles/list');
         }
 
         this.loading = true;

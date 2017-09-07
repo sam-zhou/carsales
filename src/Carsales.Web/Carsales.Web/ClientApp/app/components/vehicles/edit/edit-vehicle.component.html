@@ -29,16 +29,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="name">Title</label>
-                            <div class="col-md-9">
-                                <input class="form-control" type="text" name="name" [(ngModel)]="vehicle.name" required maxlength="250">
-                                <!--<ul class="list-unstyled">
-                                    <li class="text-danger" *ngIf="vehicleEditForm.name.$error.required">Title is required</li>
-                                    <li class="text-danger" *ngIf="vehicleEditForm.name.$error.maxlength">Title cannot go over 250 characters</li>
-                                </ul>-->
-                            </div>
-                        </div>
+                        
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="description">Description</label>
                             <div class="col-md-9">
@@ -47,6 +38,18 @@
                                     <li class="text-danger" *ngIf="vehicleEditForm.description.$error.required">Description is required</li>
                                     <li class="text-danger" *ngIf="vehicleEditForm.description.$error.maxlength">Description cannot go over 500 characters</li>
                                 </ul>-->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="odometer">Odometer</label>
+                            <div class="col-md-9">
+                                <input class="form-control" type="number" step="1" min="0" name="odometer" [(ngModel)]="vehicle.odometer" required maxlength="6">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label" for="price">Price</label>
+                            <div class="col-md-9">
+                                <input class="form-control" type="number" step="1" min="0" name="price" [(ngModel)]="vehicle.price" required maxlength="6">
                             </div>
                         </div>
                         <div class="form-group pull-right">
