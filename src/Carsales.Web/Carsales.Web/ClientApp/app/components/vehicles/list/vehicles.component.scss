@@ -1,5 +1,6 @@
 @import "../../../../../variables.scss";
 
+
 .vehicles-container {
     .actions {
         margin-bottom: 10px;
@@ -19,29 +20,23 @@
                 position: absolute;
                 top: 5px;
                 left: 5px;
-                width: 300px;
+                width: 285px;
                 height: calc(100% - 10px);
                 background-color: #000;
                 opacity: 0.1;
             }
 
             .title {
-                position: absolute;
-                left: 310px;
                 top: 5px;
                 font-size: 18px;
                 color: $font-blue-color;
             }
 
             .price {
-                position: absolute;
-                left: 310px;
                 top: 30px;
             }
 
             .details {
-                position: absolute;
-                left: 310px;
                 top: 50px;
                 width: calc(100% - 310px);
 
@@ -56,17 +51,31 @@
             }
 
             .description {
-                position: absolute;
-                left: 310px;
                 top: 90px;
                 font-size: 10px;
             }
 
-            .vehicle-actions{
+            .vehicle-actions {
                 position: absolute;
                 right: 5px;
                 top: 5px;
             }
+
+            .image-right {
+                position: absolute;
+                left: 310px;
+            }
         }
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .image-container{
+        width:200px !important;
+    }
+
+    .image-right {
+        left: 210px !important;
     }
 }
