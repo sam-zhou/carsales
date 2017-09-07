@@ -1,13 +1,24 @@
-li .glyphicon {
-    margin-right: 10px;
+@import "../../../../variables.scss";
+
+li {
+    line-height: 18px;
+
+    i {
+        margin-right: 10px;
+        font-size:18px;
+    }
+
+
+    span.menu-text {
+        font-size: 13px;
+    }
 }
 
 /* Highlighting rules for nav menu items */
 li.link-active a,
 li.link-active a:hover,
 li.link-active a:focus {
-    background-color: #4189C7;
-    color: white;
+    color: $font-hover-color !important;
 }
 
 /* Keep the nav menu independent of scrolling and on top of other items */
@@ -17,43 +28,85 @@ li.link-active a:focus {
     left: 0;
     right: 0;
     z-index: 1;
+    color: #777777;
+}
+
+.navbar-inverse {
+    background-color: white;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    transition-property: -webkit-transform;
+    transition-property: transform;
+    box-shadow: 0 -1px 24px rgba(0,0,0,0.4);
+    border: none;
+
+    .navbar-toggle {
+        border: none;
+        color: #777777;
+
+        &:hover, &:focus {
+            background-color: #fff;
+            color: #888888;
+        }
+    }
+
+    .navbar-brand{
+        color:#777777;
+    }
 }
 
 @media (min-width: 768px) {
-    /* On small screens, convert the nav menu to a vertical sidebar */
     .main-nav {
         height: 100%;
-        width: calc(25% - 20px);
+        width: 25%;
     }
+
+
     .navbar {
         border-radius: 0px;
         border-width: 0px;
         height: 100%;
+        background-color: white;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        transition-property: -webkit-transform;
+        transition-property: transform;
+        box-shadow: 0 -1px 24px rgba(0,0,0,0.4);
+
+        a {
+            /* If a menu item's text is too long, truncate it */
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 100;
+            font-size: 21px;
+        }
+
+        ul {
+            float: none;
+
+            li {
+                float: none;
+                font-size: 15px;
+                margin: 6px;
+
+                a {
+                    padding: 10px 16px;
+                    color: #777;
+
+                    &:hover {
+                        color: $font-hover-color;
+                    }
+                }
+            }
+        }
     }
     .navbar-header {
         float: none;
     }
     .navbar-collapse {
-        border-top: 1px solid #444;
+        border-top: 1px solid #d9d9d9;
         padding: 0px;
-    }
-    .navbar ul {
-        float: none;
-    }
-    .navbar li {
-        float: none;
-        font-size: 15px;
-        margin: 6px;
-    }
-    .navbar li a {
-        padding: 10px 16px;
-        border-radius: 4px;
-    }
-    .navbar a {
-        /* If a menu item's text is too long, truncate it */
-        width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
 }

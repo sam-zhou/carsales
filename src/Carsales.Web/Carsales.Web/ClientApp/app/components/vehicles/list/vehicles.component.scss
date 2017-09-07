@@ -1,0 +1,72 @@
+@import "../../../../../variables.scss";
+
+.vehicles-container {
+    .actions {
+        margin-bottom: 10px;
+    }
+
+    ul.vehicles-list {
+        list-style: none;
+        -webkit-padding-start: 0;
+
+        li {
+            height: 160px;
+            position: relative;
+            padding: 5px;
+            color: $font-color;
+
+            .image-container {
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                width: 300px;
+                height: calc(100% - 10px);
+                background-color: #000;
+                opacity: 0.1;
+            }
+
+            .title {
+                position: absolute;
+                left: 310px;
+                top: 5px;
+                font-size: 18px;
+                color: $font-blue-color;
+            }
+
+            .price {
+                position: absolute;
+                left: 310px;
+                top: 30px;
+            }
+
+            .details {
+                position: absolute;
+                left: 310px;
+                top: 50px;
+                width: calc(100% - 310px);
+
+                .detail-item {
+                    width: 50%;
+                    float: left;
+
+                    i {
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            .description {
+                position: absolute;
+                left: 310px;
+                top: 90px;
+                font-size: 10px;
+            }
+
+            .vehicle-actions{
+                position: absolute;
+                right: 5px;
+                top: 5px;
+            }
+        }
+    }
+}

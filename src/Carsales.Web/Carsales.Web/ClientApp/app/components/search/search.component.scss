@@ -1,0 +1,29 @@
+﻿.search-section {
+
+    position: relative;
+    font-size: 18px;
+    margin: 10px auto;
+
+    label {
+        position: absolute;
+        left: 17px;
+        top: 11px;
+    }
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        border: 0;
+    }
+
+    #search-input {
+        padding-left: 43px;
+        padding-right: 43px;
+        border-radius: 23px;
+    }
+}

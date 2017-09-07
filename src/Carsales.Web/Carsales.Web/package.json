@@ -64,8 +64,7 @@
   "repository": "https://github.com/sam-zhou/carsales.git",
   "scripts": {
     "test": "karma start ClientApp/test/karma.conf.js",
-    "precompile": "webpack",
-    "postinstall": "webpack --config webpack.config.vendor.js"
+    "precompile": "webpack"
   },
   "version": "1.0.0"
 }

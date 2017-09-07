@@ -37,5 +37,9 @@ namespace Carsales.Dto.Vehicles
         public string Postcode { get; set; }
 
         public string Surburb { get; set; }
+
+        public int Year { get; set; }
+
+        public int Odometer { get; set; }
     }
 }

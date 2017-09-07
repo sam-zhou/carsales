@@ -8,8 +8,10 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Carsales.Web;
+using Carsales.Web.Middleware;
 
-namespace Q_Web
+namespace Carsales.Web
 {
     public class Startup
     {
@@ -30,6 +32,7 @@ namespace Q_Web
         {
             // Add framework services.
             services.AddMvc();
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +54,8 @@ namespace Q_Web
             }
 
             app.UseStaticFiles();
+            //app.UseCsp();
+            //app.UseSecurityHeaders();
 
             app.UseMvc(routes =>
             {

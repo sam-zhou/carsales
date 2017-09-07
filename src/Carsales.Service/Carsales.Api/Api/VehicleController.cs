@@ -13,6 +13,7 @@ using Carsales.Common.Extension;
 using Carsales.Core.Models;
 using Carsales.Dto.Common;
 using Carsales.Dto.Vehicles;
+using System;
 
 namespace Carsales.Api.Api
 {
@@ -149,6 +150,8 @@ namespace Carsales.Api.Api
         private async Task<VehicleDto> InsertVehicle(VehicleDto input)
         {
             var newVehicle = Mapper.Map<Vehicle>(input);
+            //set badge to null to break the map
+            newVehicle.Badge = null;
 
             newVehicle = _vehicleRepository.Add(newVehicle);
 

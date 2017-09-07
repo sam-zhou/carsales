@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import { VehicleDto, VehicleApi, MakeDto, ModelDto, BadgeDto } from '../../../api/index';
 import { LoadableComponent } from '../../shared/index';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'edit-vehicle',
@@ -18,11 +19,13 @@ export class EditVehicleComponent extends LoadableComponent implements OnInit {
     public vehicle: VehicleDto = undefined;
     public vehicleId: number = 0;
 
-    constructor(private vehicleService: VehicleApi, private route: ActivatedRoute, private router: Router) {
+    constructor(private vehicleService: VehicleApi, private route: ActivatedRoute, private router: Router, private location: Location) {
         super(true);
     }
 
     ngOnInit() {
+        this.loadMakes();
+
         var id = this.route.snapshot.paramMap.get('id');
         if (id === 'newcar' || id === 'newbike') {
             this.vehicleId = 0;
@@ -41,20 +44,25 @@ export class EditVehicleComponent extends LoadableComponent implements OnInit {
             this.vehicleId = +this.route.snapshot.paramMap.get('id');
 
             if (this.vehicleId) {
-                this.vehicleService.getVehicleAsync({ id: this.vehicleId })
-                    .subscribe(result => {
-                        this.vehicle = result;
-                        this.loadModels(this.vehicle.badge.model.makeId);
-                        this.loadBadges(this.vehicle.badge.modelId);
-                    }, err => {
-                    }, () => {
-                        this.loading = false;
-                    });
+                this.loadVehicle(this.vehicleId);
             }
         }
+    }
 
-        
+    loadVehicle(vehicleId: number) {
+        this.loading = true;
+        this.vehicleService.getVehicleAsync({ id: this.vehicleId })
+            .subscribe(result => {
+                this.vehicle = result;
+                this.loadModels(this.vehicle.badge.model.makeId);
+                this.loadBadges(this.vehicle.badge.modelId);
+            }, err => {
+            }, () => {
+                this.loading = false;
+            });
+    }
 
+    loadMakes() {
         this.makesLoading = true;
         this.vehicleService.getMakesAsync()
             .subscribe(result => {
@@ -66,7 +74,7 @@ export class EditVehicleComponent extends LoadableComponent implements OnInit {
             });
     }
 
-   loadModels(makeId: number) {
+    loadModels(makeId: number) {
         this.vehicleService.getModelsAsync({
             makeId: makeId,
             vehicleType: 1
@@ -90,4 +98,20 @@ export class EditVehicleComponent extends LoadableComponent implements OnInit {
         });
     }
 
+    save(): void {
+        this.loading = true;
+        this.vehicleService.insertOrUpdateVehicle(this.vehicle)
+            .subscribe(result => {
+
+            }, err => {
+
+            }, () => {
+                this.loading = false;
+                this.cancel();
+            });
+    }
+
+    cancel(): void {
+        this.location.back();
+    }
 }

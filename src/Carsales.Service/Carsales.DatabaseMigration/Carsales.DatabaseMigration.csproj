@@ -102,6 +102,10 @@
     <Compile Include="Migrations\201709050730325_Add_More_Properties_To_Vehicle.Designer.cs">
       <DependentUpon>201709050730325_Add_More_Properties_To_Vehicle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709071621216_Add_Year_And_Odometer.cs" />
+    <Compile Include="Migrations\201709071621216_Add_Year_And_Odometer.Designer.cs">
+      <DependentUpon>201709071621216_Add_Year_And_Odometer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -126,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709050730325_Add_More_Properties_To_Vehicle.resx">
       <DependentUpon>201709050730325_Add_More_Properties_To_Vehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709071621216_Add_Year_And_Odometer.resx">
+      <DependentUpon>201709071621216_Add_Year_And_Odometer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

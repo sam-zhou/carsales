@@ -1,31 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { VehicleDto, VehicleApi } from '../../../api/index';
+import { VehicleDto, VehicleApi, GetVehiclesInput } from '../../../api/index';
 import { LoadableComponent } from '../../shared/index';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'vehicles',
-    templateUrl: './vehicles.component.html'
+    templateUrl: './vehicles.component.html',
+    styleUrls: ['./vehicles.component.scss'],
 })
 export class VehiclesComponent extends LoadableComponent implements OnInit {
     public vehicles: Array<VehicleDto> = [];
     public totalCount: number = 0;
 
-    constructor(private vehicleService: VehicleApi, private router: Router) {
+    public itemsPerPage: number = 3;
+    public page: number = 1;
+
+    constructor(private vehicleService: VehicleApi, private router: Router, private route: ActivatedRoute) {
         super(true);
     }
 
     ngOnInit() {
+        let page = this.route.snapshot.queryParams['page'];
+        if (page) {
+            this.page = +page;
+        }
         this.getVehicles();
     }
 
-    public getVehicles() {
-        this.vehicleService.getVehiclesAsync({
-            take: 20,
-            skip: 0,
-        }).subscribe(result => {
+    get getVehichleInput(): GetVehiclesInput {
+        return {
+            take: this.itemsPerPage,
+            skip: (this.page - 1) * this.itemsPerPage
+        };
+    }
+
+    public getVehicles(resetPage: boolean = false) {
+        if (resetPage) {
+            this.page = 1;
+        }
+
+        this.loading = true;
+        this.vehicleService.getVehiclesAsync(this.getVehichleInput)
+         .subscribe(result => {
             this.vehicles = result.results;
             this.totalCount = result.totalCount;
+            console.log(this.vehicles);
         }, error => {
 
         }, () => {
@@ -39,5 +58,13 @@ export class VehiclesComponent extends LoadableComponent implements OnInit {
 
     public edit(vehicle: VehicleDto) {
         this.router.navigate(['/edit/' + vehicle.id]);
+    }
+
+    public addCar() {
+        this.router.navigate(['/edit/newcar']);
+    }
+
+    public addBike() {
+        this.router.navigate(['/edit/newbike']);
     }
 }

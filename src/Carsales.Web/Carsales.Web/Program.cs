@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Q_Web
+namespace Carsales.Web
 {
     public class Program
     {

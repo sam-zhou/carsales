@@ -25,5 +25,7 @@ namespace Carsales.Core.Models
         public int Wheels { get; set; }
 
         public BadgeType BadgeType { get; set; }
+
+        public int Year { get; set; }
     }
 }

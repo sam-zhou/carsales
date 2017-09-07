@@ -2,10 +2,7 @@
     <div class='navbar navbar-inverse'>
         <div class='navbar-header'>
             <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
-                <span class='sr-only'>Toggle navigation</span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
-                <span class='icon-bar'></span>
+                <i class="fa fa-bars" aria-hidden="true"></i>
             </button>
             <a class='navbar-brand' [routerLink]="['/search']">Carsales</a>
         </div>
@@ -14,13 +11,13 @@
             <ul class='nav navbar-nav'>
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/search']">
-                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+                        <i class="fa fa-search" aria-hidden="true"></i>&nbsp;<span class="menu-text">Search</span>
                     </a>
                 </li>
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/vehicles/list']">
-                        <i class="fa fa-car" aria-hidden="true"></i> Vehicles
-                    </a>
+                        <i class="fa fa-car" aria-hidden="true"></i>&nbsp;<span class="menu-text">Vehicles</span>
+</a>
                 </li>
             </ul>
         </div>

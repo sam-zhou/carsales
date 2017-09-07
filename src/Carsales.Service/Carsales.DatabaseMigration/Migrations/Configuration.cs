@@ -30,50 +30,50 @@ namespace Carsales.DatabaseMigration.Migrations
                 enumToLookup.TableNamePrefix = string.Empty;
                 enumToLookup.Apply(dbContext);
 
-                using (var roleStore = new RoleStore<Role, long, UserRole>(dbContext))
-                {
-                    using (var roleManager = new RoleManager<Role, long>(roleStore))
-                    {
-                        roleManager.Create(new Role
-                        {
-                            Id = 1,
-                            Name = "Administrator"
-                        });
+                //using (var roleStore = new RoleStore<Role, long, UserRole>(dbContext))
+                //{
+                //    using (var roleManager = new RoleManager<Role, long>(roleStore))
+                //    {
+                //        roleManager.Create(new Role
+                //        {
+                //            Id = 1,
+                //            Name = "Administrator"
+                //        });
 
-                        roleManager.Create(new Role
-                        {
-                            Id = 2,
-                            Name = "User"
-                        });
+                //        roleManager.Create(new Role
+                //        {
+                //            Id = 2,
+                //            Name = "User"
+                //        });
 
-                        roleManager.Create(new Role
-                        {
-                            Id = 3,
-                            Name = "CustomManager"
-                        });
-                    }
-                }
+                //        roleManager.Create(new Role
+                //        {
+                //            Id = 3,
+                //            Name = "CustomManager"
+                //        });
+                //    }
+                //}
 
-                using (var userStore = new CarsalesUserStore(dbContext))
-                {
-                    using (var userManager = new CarsalesUserManager(userStore))
-                    {
-                        var user = new User
-                        {
-                            Email = "samzhou.it@gmail.com",
-                            EmailConfirmed = true,
-                            PhoneNumber = "0430501022",
-                            PhoneNumberConfirmed = true,
-                            AccessFailedCount = 0,
-                            LockoutEnabled = false,
-                            UserName = "samzhou.it@gmail.com",
-                            SecurityStamp = "7668b7bc-7a5d-4b3b-8388-f2e5c59f3d43",
-                            PasswordHash = "ABJ1bxk+trJ6PTk4iCBSq/WLDVmhI455FFxZbcXHtH1Xw2NyTKHsJmrWQ1Mbl7S4SQ=="
-                        };
-                        userManager.Create(user);
-                        userManager.AddToRole(user.Id, "Administrator");
-                    }
-                }
+                //using (var userStore = new CarsalesUserStore(dbContext))
+                //{
+                //    using (var userManager = new CarsalesUserManager(userStore))
+                //    {
+                //        var user = new User
+                //        {
+                //            Email = "samzhou.it@gmail.com",
+                //            EmailConfirmed = true,
+                //            PhoneNumber = "0430501022",
+                //            PhoneNumberConfirmed = true,
+                //            AccessFailedCount = 0,
+                //            LockoutEnabled = false,
+                //            UserName = "samzhou.it@gmail.com",
+                //            SecurityStamp = "7668b7bc-7a5d-4b3b-8388-f2e5c59f3d43",
+                //            PasswordHash = "ABJ1bxk+trJ6PTk4iCBSq/WLDVmhI455FFxZbcXHtH1Xw2NyTKHsJmrWQ1Mbl7S4SQ=="
+                //        };
+                //        userManager.Create(user);
+                //        userManager.AddToRole(user.Id, "Administrator");
+                //    }
+                //}
 
                 dbContext.SaveChanges();
             }

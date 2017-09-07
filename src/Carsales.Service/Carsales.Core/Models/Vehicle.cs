@@ -40,6 +40,10 @@ namespace Carsales.Core.Models
 
         public State State { get; set; }
 
+        public int Year { get; set; }
+
+        public int Odometer { get; set; }
+
         [MaxLength(4)]
         public string Postcode { get; set; }
 

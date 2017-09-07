@@ -11,6 +11,14 @@ namespace Carsales.Dto.Vehicles
 
         public ModelDto Model { get; set; }
 
-        public VehicleType VehicleType { get; set; }
+        public Engine Engine { get; set; }
+
+        public int Doors { get; set; }
+
+        public int Wheels { get; set; }
+
+        public BadgeType BadgeType { get; set; }
+
+        public int Year { get; set; }
     }
 }

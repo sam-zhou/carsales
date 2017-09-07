@@ -39,6 +39,10 @@ export interface VehicleDto {
 
     surburb?: string;
 
+    year?: number;
+
+    odometer?: number;
+
     id?: number;
 
 }

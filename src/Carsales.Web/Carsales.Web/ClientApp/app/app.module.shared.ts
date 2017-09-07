@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { ApiModule } from './api/api.module';
 import { AppCommonModule } from './common/appcommon.module';
 import { ServicesModule } from './services/services.module';
+import { BASE_PATH } from './api/variables';
 
 import { AppComponent } from './components/app/app.component'
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
@@ -11,6 +12,7 @@ import { SearchComponent } from './components/search/search.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { EditVehicleComponent } from './components/vehicles/edit/edit-vehicle.component';
 import { ViewVehicleComponent } from './components/vehicles/view/view-vehicle.component';
+import { ButtonBusyDirective } from './directives/buttonBusy.directive';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export const sharedConfig: NgModule = {
@@ -22,7 +24,8 @@ export const sharedConfig: NgModule = {
         VehiclesComponent,
         NotFoundComponent,
         EditVehicleComponent,
-        ViewVehicleComponent
+        ViewVehicleComponent,
+        ButtonBusyDirective
     ],
     imports: [
         RouterModule.forRoot([
@@ -38,5 +41,8 @@ export const sharedConfig: NgModule = {
         ServicesModule,
         FormsModule,
         ReactiveFormsModule
+    ],
+    providers: [
+        { provide: BASE_PATH, useValue: 'https://carsalesapi.azurewebsites.net' }
     ]
 };

@@ -1,0 +1,18 @@
+<div>
+    <div class="pull-right">
+        <small class="pull-right">Count: {{totalCount}}</small>
+    </div>
+    <nav aria-label="Page navigation" *ngIf="totalCount > 0">
+        <ul class="pagination">
+            <li [ngClass]="{'disabled': page === 1}">
+                <a (click)="prevPage()" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+            </li>
+            <li [ngClass]="{'active': page === p}" *ngFor="let p of numberOfPages">
+                <a (click)="goToPage(p)">{{p}}</a>
+            </li>
+            <li [ngClass]="{'disabled': page === pageCount}">
+                <a (click)="nextPage()" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+            </li>
+        </ul>
+    </nav>
+</div>
